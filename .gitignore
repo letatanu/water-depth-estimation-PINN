@@ -1,0 +1,7 @@
+dem_images_clean/
+depth_images_sww/
+sims_austin/
+anuga*.log
+mesh_*.msh
+DEM/
+test

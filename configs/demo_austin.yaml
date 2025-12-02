@@ -1,0 +1,28 @@
+# ============================================================
+# DEMO CONFIG FOR AUSTIN FLOOD DATA GENERATION (ANUGA + SWE)
+# ============================================================
+
+# ----- DEM + OUTPUT -----
+dem_path: "DEM/austin_filled.asc"
+output_dir: "sims_austin"          # where .sww files go
+run_name_prefix: "sim_"            # sim_0000.sww, sim_0001.sww, ...
+
+# ----- SIMULATION CONTROL -----
+n_sims: 200                          # start with 1 while debugging
+max_triangle_area: 2000.0           # mesh resolution
+yieldstep: 2400.0                   # 10 min in seconds
+finaltime: 43200.0                 # 12 hours
+
+# ----- PHYSICAL PARAMETERS -----
+friction: 0.02
+
+# ----- RAINFALL (IMPORTANT) -----
+# Peak rainfall intensity (mm/hr); this MUST be > 0
+rainfall_peak_min: 20
+rainfall_peak_max: 80
+
+random_seed: 42
+n_workers: 128
+# ============================================================
+# END OF CONFIG
+# ============================================================
