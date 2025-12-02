@@ -63,8 +63,7 @@ def visualize_samples(
     # 4. Loop over a few samples
     with torch.no_grad():
         for i, (inp, target) in enumerate(loader):
-            if i >= num_samples:
-                break
+            if i%20 != 0: continue
 
             inp = inp.to(device)         # [1, 5, H, W]
             target = target.to(device)   # [1, 3, H, W]
@@ -120,7 +119,7 @@ def visualize_samples(
 if __name__ == "__main__":
     # Adjust paths if needed
     visualize_samples(
-        npz_path="dataset/deepflood_anuga_dataset_clean.npz",
+        npz_path="dataset/deepflood_anuga_dataset.npz",
         ckpt_path="gan_checkpoints/epoch_050.pth",  
         split="val",
         num_samples=5,

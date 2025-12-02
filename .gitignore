@@ -5,3 +5,6 @@ anuga*.log
 mesh_*.msh
 DEM/
 test
+gan_vis
+gan_checkpoints
+dataset/*.npz

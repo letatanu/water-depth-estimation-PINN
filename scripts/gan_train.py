@@ -9,9 +9,9 @@ from models.gan_models import UNetGenerator, PatchDiscriminator
 
 
 def train_gan(
-    npz_path: str = "dataset/deepflood_anuga_dataset_clean.npz",
+    npz_path: str = "dataset/deepflood_anuga_dataset.npz",
     batch_size: int = 8,
-    num_epochs: int = 50,
+    num_epochs: int = 200,
     lr: float = 2e-4,
     lambda_L1: float = 100.0,
     device: str = None,
@@ -107,16 +107,17 @@ def train_gan(
         # TODO: add validation, early stopping, etc.
 
         # Save checkpoint
-        torch.save(
-            {
-                "epoch": epoch + 1,
-                "netG_state": netG.state_dict(),
-                "netD_state": netD.state_dict(),
-                "optG_state": optimizer_G.state_dict(),
-                "optD_state": optimizer_D.state_dict(),
-            },
-            out_dir / f"epoch_{epoch+1:03d}.pth",
-        )
+        if epoch + 1 == num_epochs:
+            torch.save(
+                {
+                    "epoch": epoch + 1,
+                    "netG_state": netG.state_dict(),
+                    "netD_state": netD.state_dict(),
+                    "optG_state": optimizer_G.state_dict(),
+                    "optD_state": optimizer_D.state_dict(),
+                },
+                out_dir / f"epoch_{epoch+1:03d}.pth",
+            )
 
 
 if __name__ == "__main__":
