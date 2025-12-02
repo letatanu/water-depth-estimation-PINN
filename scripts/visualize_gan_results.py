@@ -120,7 +120,7 @@ if __name__ == "__main__":
     # Adjust paths if needed
     visualize_samples(
         npz_path="dataset/deepflood_anuga_dataset.npz",
-        ckpt_path="gan_checkpoints/epoch_050.pth",  
+        ckpt_path="gan_checkpoints/epoch_200.pth",  
         split="val",
         num_samples=5,
         out_dir="gan_vis",
